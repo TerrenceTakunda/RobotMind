@@ -1,0 +1,8 @@
+{
+    "name": "RobotMind",
+    "version": "1.0.0-SNAPSHOT",
+    "keywords": ["util", "functional", "server", "client", "browser"],
+    "author": "terrence",
+    "contributors": [],
+    "dependencies": {}
+}
