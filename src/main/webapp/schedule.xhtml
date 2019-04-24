@@ -1,7 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Control Panel</title>
         <!-- Mobile Specific Meta -->
@@ -27,13 +30,13 @@
         <link rel="stylesheet" href="css/animate.min.css" />
         <link rel="stylesheet" href="css/owl.carousel.css" />
         <link rel="stylesheet" href="css/main.css" />
-        
+
         <style>
             .wrapper {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 10px;
-        }
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+            }
         </style>
     </h:head>
     <h:body>
@@ -44,10 +47,48 @@
                     <div class="col-lg-6 about-video-left">
                         <div class="wrapper">
                             <iframe id="frame" src="basic.html" class="img-fluid mx-auto" scrolling="no" height="50" width="50" />
-                            <iframe id="frame" src="basic.html" class="img-fluid mx-auto" scrolling="no" height="50" width="50"/>
-                        </div>
-                        
-                        <a class="primary-btn" href="#semantics">Set Schedule</a>
+                            <iframe id="frame" src="basic_1.html" class="img-fluid mx-auto" scrolling="no" height="50" width="50"/>
+                        </div><br/>
+                        <h:form>
+                            <h3><p:outputLabel value="Choose what to control" /></h3>
+                            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                <p:outputLabel for="console" value="Select One:" />
+                                <p:selectOneRadio id="console" value="Control" unselectable="true">
+                                    <f:selectItem itemLabel="Gripper" itemValue="Gripper" />
+                                    <f:selectItem itemLabel="Arm" itemValue="Arm" />
+                                    <f:selectItem itemLabel="Shoulder" itemValue="Shoulder" />
+                                    <f:selectItem itemLabel="Base" itemValue="Base" />
+                                </p:selectOneRadio>
+                            </h:panelGrid>
+                            <div class="wrapper">
+                            <p:commandLink value="Set Schedule" class="primary-btn" onclick="PF('dlg').show();" />
+                            <p:link outcome="index.html" value="Exit" class="primary-btn"/>
+                            </div>
+                            <p:dialog header="Schedule" widgetVar="dlg" modal="true" >
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:outputLabel for="date" value="For Date:"/>
+                                    <p:calendar id="date" value="#{calendarView.date}" />
+                                    
+                                    <p:inputText value="#{schedules.schedule1}" a:placeholder="Schedule Description" />
+                                    <p:calendar id="time1" value="#{calendarView.time1}" pattern="HH:mm" timeOnly="true" a:placeholder="Time" />
+                                    
+                                    <p:inputText value="#{schedules.schedule2}" a:placeholder="Schedule Description" />
+                                    <p:calendar id="time1" value="#{calendarView.time2}" pattern="HH:mm" timeOnly="true" a:placeholder="Time"  />
+                                    
+                                    <p:inputText value="#{schedules.schedule3}" a:placeholder="Schedule Description" />
+                                    <p:calendar id="time1" value="#{calendarView.time3}" pattern="HH:mm" timeOnly="true" a:placeholder="Time"  />
+                                    
+                                    <p:inputText value="#{schedules.schedule4}" a:placeholder="Schedule Description" />
+                                    <p:calendar id="time1" value="#{calendarView.time4}" pattern="HH:mm" timeOnly="true" a:placeholder="Time"  />
+                                    
+                                    <p:inputText value="#{schedules.schedule5}" a:placeholder="Schedule Description" />
+                                    <p:calendar id="time1" value="#{calendarView.time5}" pattern="HH:mm" timeOnly="true" a:placeholder="Time"  />
+                                    
+                                    <p:commandButton value="Confirm" />
+                                    <p:commandButton value="Help" />
+                                </h:panelGrid>
+                            </p:dialog> 
+                        </h:form>
                     </div>
                     <div class="col-lg-6 justify-content-center align-items-center d-flex relative">
                         <iframe id="frame" src="http://192.168.43.1:8080" class="wrap" scrolling="no">
@@ -58,7 +99,7 @@
             </div>
         </section>
         <!-- End stream Area -->
-        
+
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/easing.min.js"></script>
         <script src="js/hoverIntent.js"></script>
