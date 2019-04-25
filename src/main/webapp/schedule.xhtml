@@ -84,7 +84,7 @@
                             <p:inputText value="#{schedules.schedule1}" a:placeholder="Schedule Description" />
                             <p:calendar id="time1" value="#{calendarView.time1}" pattern="HH:mm" timeOnly="true" a:placeholder="Time" />
 
-                            <p:commandButton value="Confirm" update="growl"/>
+                            <p:commandButton value="Confirm" action="#{schedules.theSchedule()}" update="growl" ajax="false"/>
                             <p:commandButton value="Help" />
 <!--                            <p:inputText value="#{schedules.schedule2}" a:placeholder="Schedule Description" />
                             <p:calendar id="time1" value="#{calendarView.time2}" pattern="HH:mm" timeOnly="true" a:placeholder="Time"  />

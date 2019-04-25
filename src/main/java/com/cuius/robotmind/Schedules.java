@@ -79,11 +79,10 @@ public class Schedules implements Serializable {
         this.schedule5 = schedule5;
     }
     
-    public String theSchedule(){
+    public void theSchedule(){
         
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Success!", "Schedule set Seccefully"));
         
-        return "schedule.xhtml?faces-redirect=true";
     }
 }
