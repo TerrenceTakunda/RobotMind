@@ -17,6 +17,8 @@ package com.cuius.robotmind;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -77,4 +79,11 @@ public class Schedules implements Serializable {
         this.schedule5 = schedule5;
     }
     
+    public String theSchedule(){
+        
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Success!", "Schedule set Seccefully"));
+        
+        return "schedule.xhtml?faces-redirect=true";
+    }
 }

@@ -32,7 +32,7 @@ import org.primefaces.event.SelectEvent;
 public class CalendarView implements Serializable {
 
     private Date date;
-    private Date time1;
+    private Date time;
     private Date time2;
     private Date time3;
     private Date time4;
@@ -52,11 +52,11 @@ public class CalendarView implements Serializable {
     }
 
     public Date getTime1() {
-        return time1;
+        return time;
     }
 
-    public void setTime1(Date time1) {
-        this.time1 = time1;
+    public void setTime1(Date time) {
+        this.time = time;
     }
 
     public Date getTime2() {
@@ -90,10 +90,10 @@ public class CalendarView implements Serializable {
     public void setTime5(Date time5) {
         this.time5 = time5;
     }
-    
-    public void onDateSelect(SelectEvent event) {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
-    }
+//    
+//    public void onDateSelect(SelectEvent event) {
+//        FacesContext facesContext = FacesContext.getCurrentInstance();
+//        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+//        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
+//    }
 }
